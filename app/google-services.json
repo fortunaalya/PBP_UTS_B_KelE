@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "500849827347",
+    "firebase_url": "https://pbputsbkele.firebaseio.com",
+    "project_id": "pbputsbkele",
+    "storage_bucket": "pbputsbkele.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500849827347:android:bb20b6e10fddf4f73029e6",
+        "android_client_info": {
+          "package_name": "com.tubes.pbp_uts_b_kele"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500849827347-6s28jnm0ukoqp724uvrgkmc7o4o5gp4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tubes.pbp_uts_b_kele",
+            "certificate_hash": "32fc33a8b2b3bde356085e6103d7d52dbddff4d1"
+          }
+        },
+        {
+          "client_id": "500849827347-nc0mre49lortf4m3jbtt7k02avm6r4sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPeOi5UB_LlDSnFF7nlWwCDoBsXoEod0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500849827347-nc0mre49lortf4m3jbtt7k02avm6r4sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
