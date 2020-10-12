@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,79 +22,32 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.tubes.pbp_uts_b_kelompoke.databinding.ActivityMenuMakananBinding;
+import java.util.ArrayList;
+
 public class MenuMakananActivity extends AppCompatActivity {
-    private EditText value1, value2;
-    private Button order_button, buttonPlus1, buttonPlus2, buttonMinus1, buttonMinus2; //logout_button;
-    private FirebaseAuth mAuth;
+    private ArrayList<Menu> listMenu;
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter adapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_makanan);
+        ActivityMenuMakananBinding activityMenuMakananBinding = DataBindingUtil.setContentView(this, R.layout.activity_menu_makanan);        //setContentView(R.layout.activity_main);
 
-        value1 = findViewById(R.id.value1);
-        value2 = findViewById(R.id.value2);
-        order_button = findViewById(R.id.order_button);
-        buttonPlus1 = findViewById(R.id.buttonPlus1);
-        buttonPlus2 = findViewById(R.id.buttonPlus2);
-        buttonMinus1 = findViewById(R.id.buttonMinus1);
-        buttonMinus2 = findViewById(R.id.buttonMinus2);
-        mAuth = FirebaseAuth.getInstance();
+        //get data mahasiswa
+        listMenu = new DaftarMenu ().Menu;
 
-        value1.setText("0");
-        value2.setText("0");
-
-        buttonPlus1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int a = Integer.parseInt(value1.getText().toString().trim());
-                a = a + 1;
-                value1.setText(String.valueOf(a));
-            }
-        });
-
-        buttonMinus1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int a = Integer.parseInt(value1.getText().toString().trim());
-                a = a - 1;
-                if (a < 0){
-                    a = 0;
-                }
-                value1.setText(String.valueOf(a));
-            }
-        });
-
-        buttonPlus2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int a = Integer.parseInt(value2.getText().toString().trim());
-                a = a + 1;
-                value2.setText(String.valueOf(a));
-            }
-        });
-
-        buttonMinus2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int a = Integer.parseInt(value2.getText().toString().trim());
-                a = a - 1;
-                if (a < 0){
-                    a = 0;
-                }
-                value2.setText(String.valueOf(a));
-            }
-        });
-
-//        logout_button = findViewById(R.id.logout_button);
-//        logout_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                mAuth.signOut();
-//            }
-//        });
+        //recycler view
+        //recyclerView = findViewById(R.id.recycler_view_mahasiswa);
+        adapter = new RecyclerViewAdapter(MenuMakananActivity.this, listMenu );
+        activityMenuMakananBinding.setMahasiswa(adapter);
+        //activityMainBinding.setMahasiswa(adapter);
+        //mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        //recyclerView.setLayoutManager(mLayoutManager);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //recyclerView.setAdapter(adapter);
     }
 
     @Override
