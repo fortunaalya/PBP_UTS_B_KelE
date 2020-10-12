@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private CardView menuLocation, menuProfile, menuMenu, menuPayment;
+    private Button list, location, reservasi, bayar, profile, keluar;
     //private Button logout_button;
 
     @Override
@@ -31,13 +31,14 @@ public class MenuActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        menuLocation = findViewById(R.id.menuLocation);
-        menuProfile = findViewById(R.id.menuProfile);
-        menuMenu = findViewById(R.id.menuMenu);
-        menuPayment = findViewById(R.id.menuPayment);
-        //logout_button = findViewById(R.id.logout_button);
+        list = findViewById(R.id.btnmenu);
+        location = findViewById(R.id.btnLocation);
+        reservasi = findViewById(R.id.btnreservasi);
+        bayar = findViewById(R.id.btnPayment);
+        profile = findViewById(R.id.btnProfile);
+        keluar = findViewById(R.id.btnLogout);
 
-        menuLocation.setOnClickListener(new View.OnClickListener() {
+        location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -45,7 +46,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        menuProfile.setOnClickListener(new View.OnClickListener() {
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -53,7 +54,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        menuMenu.setOnClickListener(new View.OnClickListener() {
+        list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -61,7 +62,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        menuPayment.setOnClickListener(new View.OnClickListener() {
+        bayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -69,13 +70,29 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-//        logout_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mAuth.signOut();
-//                finish();
-//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//            }
-//        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+       // reservasi.setOnClickListener(new View.OnClickListener() {
+      //      @Override
+        //    public void onClick(View view) {
+         //       Intent intent = new Intent(MenuActivity.this, ReservasiActivity.class);
+          //      startActivity(intent);
+           // }
+        //});
+
+        keluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
     }
 }

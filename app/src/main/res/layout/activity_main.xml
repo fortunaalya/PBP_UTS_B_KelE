@@ -1,95 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/topText"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="40dp"
-        android:text="Hi Welcome"
-        android:textStyle="bold"
-        android:fontFamily="serif-monospace"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        ></com.google.android.material.textview.MaterialTextView>
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/topText2"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="40dp"
-        android:text="PBP Resto !!!"
-        android:textStyle="bold"
-        android:fontFamily="serif-monospace"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/topText"
-        android:layout_marginTop="50dp"
-        ></com.google.android.material.textview.MaterialTextView>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="100dp"
-        android:layout_below="@id/topText2"
-        android:hint="Email">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#ffff"
+    android:padding="10dp"
+    android:id="@+id/layout_login">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:fontFamily="serif-monospace"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/icon"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amita_bold"
+        android:text="@string/hai"
+        android:textSize="35sp"
+        android:layout_marginTop="-35dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:fontFamily="@font/amita"
+        android:text="@string/phuff"
+        android:textSize="18sp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="100dp"
-        android:layout_below="@id/textInputLayout1"
-        android:hint="Password"
-        app:passwordToggleEnabled="true">
+        android:layout_marginBottom="20dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPassword"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:fontFamily="serif-monospace"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/email"
+            android:id="@+id/emails">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:id="@+id/txtemails"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/password"
+            android:id="@+id/pass"
+            app:passwordToggleEnabled="true"
+            android:layout_below="@id/emails">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:id="@+id/txtpassord"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textInputLayout2"
-        android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:fontFamily="serif-monospace"
-        android:text="Login" />
+        android:text="@string/login"
+        android:backgroundTint="#82ccdd"
+        android:textColor="#000"
+        android:id="@+id/login"
+        android:layout_below="@id/pass"/>
+
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/simpleText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="15dp"
-        android:text="New User? Signup"
-        android:textStyle="bold"
-        android:fontFamily="serif-monospace"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/login_button"
-        android:layout_marginTop="20dp"
-        ></com.google.android.material.textview.MaterialTextView>
-</RelativeLayout>
+        android:text="@string/new_user"
+        android:backgroundTint="#ffff"
+        android:textColor="#000"
+        android:id="@+id/new_user"
+        android:layout_below="@id/login"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:fontFamily="@font/amita"/>
+</LinearLayout>

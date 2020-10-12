@@ -39,13 +39,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        nama = findViewById(R.id.editTextNama);
-        email = findViewById(R.id.editTextEmail);
-        alamat = findViewById(R.id.editTextAlamat);
-        no_telp = findViewById(R.id.editTextNoTelp);
-        username = findViewById(R.id.editTextUsername);
-        passwordnya = findViewById(R.id.editTextPassword);
-        buttonSignup = findViewById(R.id.register_button);
+        nama = findViewById(R.id.txtfullname);
+        email = findViewById(R.id.txtemail);
+        no_telp = findViewById(R.id.txtphone);
+        username = findViewById(R.id.txtusername);
+        passwordnya = findViewById(R.id.txtpass);
+        buttonSignup = findViewById(R.id.btn_register);
         simpleText = findViewById(R.id.simpleText);
 
         buttonSignup.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +81,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             ref1.child("Name").setValue(nama.getText().toString().trim());
                             ref1.child("Email").setValue(user.getEmail());
-                            ref1.child("Alamat").setValue(alamat.getText().toString().trim());
                             ref1.child("No_Telepon").setValue(no_telp.getText().toString().trim());
                             ref1.child("Username").setValue(username.getText().toString().trim());
                             ref1.child("Password").setValue(passwordnya.getText().toString().trim());
