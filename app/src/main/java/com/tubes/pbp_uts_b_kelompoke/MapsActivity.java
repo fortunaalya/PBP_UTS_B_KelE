@@ -15,6 +15,7 @@ import android.icu.text.SymbolTable;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -63,6 +64,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Point origin;
     double latitude=3.5834448;
     double longitude=98.6717081;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         searchfab = findViewById(R.id.fab_location_search);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+        back = (ImageButton) findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MapsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         searchfab.setOnClickListener(new View.OnClickListener() {
             @Override

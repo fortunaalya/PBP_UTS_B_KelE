@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class MenuMakananActivity extends AppCompatActivity {
     private EditText value1, value2;
     private Button order_button, buttonPlus1, buttonPlus2, buttonMinus1, buttonMinus2; //logout_button;
     private FirebaseAuth mAuth;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,16 @@ public class MenuMakananActivity extends AppCompatActivity {
 
         value1.setText("0");
         value2.setText("0");
+
+        back = (ImageButton) findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuMakananActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         buttonPlus1.setOnClickListener(new View.OnClickListener() {
             @Override
