@@ -50,4 +50,11 @@ public class MenuMakananActivity extends AppCompatActivity {
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         //recyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+    }
 }
