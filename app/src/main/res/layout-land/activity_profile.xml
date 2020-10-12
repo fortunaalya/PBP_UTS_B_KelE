@@ -44,7 +44,7 @@
             android:textSize="35dp"
             android:hint="@string/username"
             android:layout_gravity="center"
-            android:layout_marginTop="-15dp"
+            android:layout_marginTop="-10dp"
             android:textColor="#000"
             android:fontFamily="@font/allan"
             android:id="@+id/layout_user"
