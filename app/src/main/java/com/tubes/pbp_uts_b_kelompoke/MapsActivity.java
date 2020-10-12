@@ -57,7 +57,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String DESTINATION_ICON_ID = "destinaton-icon-id";
     private static final String DESTINATION_SOURCE_ID = "destination-source-id";
     private static final int REQUEST_CODE_AUTOCOMPLETE = 1;
-    private FloatingActionButton searchfab;
     private PermissionsManager permissionsManager;
     private MapboxMap mapboxMap;
     private MapView mapView;
@@ -75,7 +74,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_geolocation);
 
         mapView = findViewById(R.id.mapView);
-        searchfab = findViewById(R.id.fab_location_search);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
         back = (ImageButton) findViewById(R.id.back);
@@ -85,20 +83,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View view) {
                 Intent intent = new Intent(MapsActivity.this, MainActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        searchfab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new PlaceAutocomplete.IntentBuilder()
-                        .accessToken(Mapbox.getAccessToken() != null ? Mapbox.getAccessToken() : getString(R.string.mapbox_access_token))
-                        .placeOptions(PlaceOptions.builder()
-                                .backgroundColor(Color.parseColor("#EEEEEE"))
-                                .limit(10)
-                                .build(PlaceOptions.MODE_CARDS))
-                        .build(MapsActivity.this);
-                startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
             }
         });
     }
@@ -131,8 +115,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             locationComponent.setCameraMode(CameraMode.TRACKING);
 
             locationComponent.setRenderMode(RenderMode.COMPASS);
-//            this.origin = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
-//                    locationComponent.getLastKnownLocation().getLatitude());
         } else{
             permissionsManager = new PermissionsManager(this);
             permissionsManager.requestLocationPermissions(this);
@@ -162,20 +144,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         initLayers(style);
                         mapboxMap.animateCamera(CameraUpdateFactory
                                 .newCameraPosition(position), 500);
-
-                        mapboxMap.addOnMapClickListener(new MapboxMap.OnMapClickListener() {
-                            @Override
-                            public boolean onMapClick(@NonNull LatLng point) {
-
-                                symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                                        Point.fromLngLat(point.getLongitude(), point.getLatitude())));
-
-                                GeoJsonSource source = mapboxMap.getStyle().getSourceAs(DESTINATION_SOURCE_ID);
-                                source.setGeoJson(FeatureCollection.fromFeatures(symbolLayerIconFeatureList));
-
-                                return true;
-                            }
-                        });
                     }
                 });
     }
