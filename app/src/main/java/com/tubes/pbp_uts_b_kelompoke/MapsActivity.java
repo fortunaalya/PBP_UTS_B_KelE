@@ -106,7 +106,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void initLayers(@NonNull Style loadedMapStyle) {
         loadedMapStyle.addImage(DESTINATION_ICON_ID,
                 BitmapFactory.decodeResource(this.getResources(), R.drawable.mapbox_marker_icon_default));
-        GeoJsonSource geoJsonSource = new GeoJsonSource(DESTINATION_ICON_ID);
+        GeoJsonSource geoJsonSource = new GeoJsonSource(DESTINATION_SOURCE_ID);
         loadedMapStyle.addSource(geoJsonSource);
         SymbolLayer destinationSymbolLayer = new SymbolLayer(DESTINATION_SYMBOL_LAYER_ID, DESTINATION_SOURCE_ID);
         destinationSymbolLayer.withProperties(

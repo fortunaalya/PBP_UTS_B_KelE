@@ -8,12 +8,8 @@ import androidx.databinding.BindingAdapter;
 import com.bumptech.glide.Glide;
 
 public class Menu extends BaseObservable {
-    //public String npm;
     public String nama;
-    //public String fakultas;
-    //public String jurusan;
     public int harga;
-    //public String hobi;
     public String imgURL;
 
     public Menu() {
@@ -34,22 +30,10 @@ public class Menu extends BaseObservable {
 
 
     public Menu(String nama, int harga, String imgURL) {
-        //.npm = npm;
         this.nama = nama;
-        //this.fakultas = fakultas;
-        //this.jurusan = jurusan;
         this.harga = harga;
-        //this.hobi = hobi;
         this.imgURL = imgURL;
     }
-
-//    public String getNpm() {
-//        return npm;
-//    }
-//
-//    public void setNpm(String npm) {
-//        this.npm = npm;
-//    }
 
     public String getNama() {
         return nama;
@@ -59,22 +43,6 @@ public class Menu extends BaseObservable {
         this.nama = nama;
     }
 
-//    public String getFakultas() {
-//        return fakultas;
-//    }
-//
-//    public void setFakultas(String fakultas) {
-//        this.fakultas = fakultas;
-//    }
-//
-//    public String getJurusan() {
-//        return jurusan;
-//    }
-//
-//    public void setJurusan(String jurusan) {
-//        this.jurusan = jurusan;
-//    }
-
     public int getHarga() {
         return harga;
     }
@@ -82,10 +50,6 @@ public class Menu extends BaseObservable {
     public void setHarga(int harga) {
         this.harga = harga;
     }
-
-//    public String getHobi() {
-//        return hobi;
-//    }
 
     public String getStringHarga(){ return String.valueOf( harga ); }
 
@@ -96,10 +60,6 @@ public class Menu extends BaseObservable {
             this.harga = 0;
         }
     }
-
-//    public void setHobi(String hobi) {
-//        this.hobi = hobi;
-//    }
 
     public String getImgURL() {
         return imgURL;

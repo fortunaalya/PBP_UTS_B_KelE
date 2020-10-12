@@ -221,7 +221,6 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-
     private void openCamera(){
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE,"New Picture");
